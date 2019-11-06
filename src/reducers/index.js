@@ -1,4 +1,6 @@
 // step 2 create our mock reducer- function that returns and object which returns updated
+import { ADD_FEATURE , REMOVE_FEATURE } from '../actions';
+
 const initialState = {
     additionalPrice: 0,
         car: {
@@ -15,3 +17,32 @@ const initialState = {
         { id: 4, name: 'Rear spoiler', price: 250 }
     ]
 };
+
+export const reducer = (state = initialState. action) => {
+    console.log(action)
+    switch(action.type){
+        case ADD_FEATURE:
+            return{
+                ...state,
+                car: {
+                    ...state.car,
+                    features: [...state.car.features, action.payload]
+                },
+                store: state.store.filter(addOn => addOn.id !== action.payload.id),
+                additionalPrice: (state.additionalPrice += action.payload.price)
+            }
+
+            case REMOVE_FEATURE:
+                return {
+                    ...state,
+                    car: {
+                        ...state.car,
+                        features: state.car.features.filter(addOn => addOn.id !== action.payload.id)
+                    },
+                    store: [...state.store, action.payload],
+                    additionalPrice: (state.additionalPrice -= action.payload.price)
+                }
+                default:
+                    return state; 
+    }
+}
