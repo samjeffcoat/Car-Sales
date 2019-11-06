@@ -1,7 +1,7 @@
 import React from 'react';
 
-//Step 4. import Provider 
-
+// step 7. import connect from react-redux so that props is able to use the info in our store which is passed to <App /> from <Provider />
+import { connect } from "react-redux";
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
@@ -34,4 +34,11 @@ const App = () => {
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    car: state.car,
+    store: state.store,
+    additionalPrice: state.additionalPrice
+  }
+}
 export default App;
