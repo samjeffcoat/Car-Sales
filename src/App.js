@@ -1,14 +1,14 @@
 import React from 'react';
-//step 1 import create store
-import { createStore } from "redux";
 
+//Step 4. import Provider 
 
-// step 2 create our mock reducer- function that returns and object which returns updated 
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+
+// 3. create a store and pass our reducer in here
 
 const App = () => {
 
