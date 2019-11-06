@@ -3,10 +3,13 @@ import React from 'react';
 // step 7. import connect from react-redux so that props is able to use the info in our store which is passed to <App /> from <Provider />
 import { connect } from "react-redux";
 
+import { addFeature, removeFeature } from './actions';
+
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+
 
 // 3. create a store and pass our reducer in here
 
@@ -41,4 +44,4 @@ const mapStateToProps = state => {
     additionalPrice: state.additionalPrice
   }
 }
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, {addFeature, removeFeature })(App);
