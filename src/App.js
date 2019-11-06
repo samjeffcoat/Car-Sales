@@ -33,7 +33,7 @@ const App = () => {
     </div>
   );
 };
-
+//  this function allows the info from store to be passed down to props. State is taken in which refers to all the info stored in the reducer store. You are able to pass in specific pieces of state. You don't have to use all. It depends on what the component actually needs.
 const mapStateToProps = state => {
   return {
     car: state.car,
@@ -41,4 +41,4 @@ const mapStateToProps = state => {
     additionalPrice: state.additionalPrice
   }
 }
-export default App;
+export default connect(mapStateToProps, {})(App);
